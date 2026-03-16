@@ -11,7 +11,7 @@ st.set_page_config(page_title="Viabilidad Energía Solar", page_icon="☀️", l
 def load_data():
     # Asegúrate de que tu archivo se llame exactamente así y esté en la misma carpeta
     try:
-        df = pd.read_csv('datos_solares.csv', encoding='latin-1')
+        df = pd.read_csv('datos_solares.csv', sep=";", encoding='latin-1')
         return df
     except FileNotFoundError:
         st.error("⚠️ No se encontró el archivo 'datos_solares.csv'. Asegúrate de subirlo a tu repositorio.")
