@@ -66,12 +66,12 @@ if opcion == "Landing Page":
     with col2:
         st.subheader("👥 Equipo de Trabajo")
         st.write("""
-        * **[Tu Nombre]** - Arquitecto de Datos / Analista SQL
-        * **[Integrante 2]** - Especialista en Python y Pandas
-        * **[Integrante 3]** - Desarrollador BI (Streamlit)
-        * **[Integrante 4]** - Especialista de Dominio
-        * **[Integrante 5]** - Documentación y QA
-        * **[Integrante 6]** - Apoyo Analítico
+        * **Yeferson Carvajal Cardona / Andrés Buriticá** - Arquitecto de Datos / Analista SQL
+        * **Ángela Moya Beltrán** - Especialista en Python y Pandas
+        * **Mariana Rueda Ocampo** - Desarrollador BI (Streamlit)
+        * **Camilo Echeverry Orozco** - Especialista de Dominio
+        * **Yeferson Carvajal Cardona** - Documentación y QA
+        * **Camilo Echeverry Orozco** - Apoyo Analítico
         """)
 
     st.info("👈 Selecciona 'Dashboard Analítico' en el menú lateral para interactuar con los datos.")
