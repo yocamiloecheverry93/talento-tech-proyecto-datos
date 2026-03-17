@@ -9,40 +9,35 @@ st.set_page_config(page_title="Viabilidad Energía Solar", page_icon="☀️", l
 @st.cache_data
 def load_data():
     try:
-        # Prueba primero con separador automático más tolerante
         df = pd.read_csv(
             "datos_solares.csv",
             sep=";",
-            engine="python",
-            encoding="utf-8-sig"
+            encoding="latin-1"
         )
 
-        # Limpiar nombres de columnas por si vienen con espacios
         df.columns = df.columns.str.strip()
 
-        # Normalizar Status
         if "Status" in df.columns:
             df["Status"] = df["Status"].astype(str).str.strip().str.lower()
 
-        # Convertir Capacity (MW) a numérico
         if "Capacity (MW)" in df.columns:
             df["Capacity (MW)"] = (
                 df["Capacity (MW)"]
                 .astype(str)
                 .str.strip()
-                .str.replace(",", "", regex=False)   # quita separadores de miles tipo 1,200
+                .str.replace(",", "", regex=False)
             )
             df["Capacity (MW)"] = pd.to_numeric(df["Capacity (MW)"], errors="coerce")
 
-        # Convertir Start year a numérico
         if "Start year" in df.columns:
             df["Start year"] = pd.to_numeric(df["Start year"], errors="coerce")
 
         return df
 
     except FileNotFoundError:
-        st.error("⚠️ No se encontró el archivo 'datos_solares.csv'. Asegúrate de subirlo a tu repositorio.")
+        st.error("⚠️ No se encontró el archivo 'datos_solares.csv' en el repositorio.")
         return pd.DataFrame()
+
     except Exception as e:
         st.error(f"⚠️ Error al cargar los datos: {e}")
         return pd.DataFrame()
